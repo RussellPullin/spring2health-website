@@ -1,5 +1,11 @@
 # Deploying Spring 2 Health to Vercel
 
+## Vercel shows "No active branches" or NOT_FOUND?
+
+See **[VERCEL_FIX.md](VERCEL_FIX.md)** — reconnect GitHub and clear **Root Directory** (must not be `spring2health`).
+
+---
+
 ## Domain still shows GoDaddy?
 
 Your domain DNS still points at GoDaddy, not Vercel. Follow **[GODADDY_DNS_FIX.md](GODADDY_DNS_FIX.md)** first — no code change fixes that until DNS is updated.
