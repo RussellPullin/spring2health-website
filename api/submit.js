@@ -20,6 +20,19 @@ function setCorsHeaders(req, res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 }
 
+function parseBody(req) {
+  if (!req.body) return {};
+  if (typeof req.body === 'object') return req.body;
+
+  const contentType = req.headers['content-type'] || '';
+
+  if (contentType.includes('application/x-www-form-urlencoded')) {
+    return Object.fromEntries(new URLSearchParams(req.body));
+  }
+
+  return JSON.parse(req.body);
+}
+
 module.exports = async function handler(req, res) {
   setCorsHeaders(req, res);
 
@@ -30,7 +43,7 @@ module.exports = async function handler(req, res) {
     return res.status(500).json({ error: 'missing_resend_api_key' });
   }
 
-  const d = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+  const d = parseBody(req);
   const isRef = d.type === 'referral';
 
   const subject = isRef

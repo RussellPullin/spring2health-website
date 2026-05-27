@@ -195,7 +195,8 @@
         <div class="referral-form-wrap">
           <h3 style="font-size:1.3rem;font-weight:700;color:var(--charcoal);margin-bottom:0.5rem;">Referral Form</h3>
           <p style="font-size:0.88rem;color:var(--soft);margin-bottom:2rem;">Please provide as much detail as possible so we can best support the individual.</p>
-          <form class="s2h-form" data-type="referral" novalidate>
+          <form class="s2h-form" data-type="referral" action="https://spring2health.com.au/api/submit" method="post" novalidate>
+          <input type="hidden" name="type" value="referral">
           <div class="fg2">
             <div class="ff"><label>Participant First Name</label><input type="text" name="participant_first" placeholder="First name" required></div>
             <div class="ff"><label>Participant Last Name</label><input type="text" name="participant_last" placeholder="Last name" required></div>
