@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us &mdash; Spring 2 Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --forest:      #1B4D35;
+    --forest-dark: #0D2C1E;
+    --forest-mid:  #2A6B4A;
+    --forest-lt:   #4D9970;
+    --forest-pale: #EAF5EE;
+    --forest-frost:#F2FAF5;
+    --amber:       #D97706;
+    --amber-dark:  #B45309;
+    --amber-lt:    #F59E0B;
+    --amber-pale:  #FEF9EE;
+    --cream:       #F4F0E8;
+    --sand:        #EDE4D3;
+    --white:       #FFFFFF;
+    --charcoal:    #1A2A1C;
+    --mid:         #3D5247;
+    --soft:        #6A7C6E;
+    --border:      rgba(27,77,53,0.15);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Nunito', sans-serif;
+    --r: 10px;
+    --shadow:    0 4px 24px rgba(13,44,30,0.12);
+    --shadow-lg: 0 16px 60px rgba(13,44,30,0.22);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--cream); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--forest-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 3px; }
+
+  /* Icon sizing */
+  .icon-wrap i { display: flex; align-items: center; justify-content: center; }
+  .svc-ico i, .hcard-icon i { font-size: 1.2rem; color: var(--forest-lt); }
+  .svc-full-icon i { font-size: 2.6rem; color: var(--forest-mid); }
+  .av-icon i { font-size: 0.9rem; color: var(--forest-mid); }
+  .cd-icon i { font-size: 1.1rem; color: var(--forest-mid); }
+  .diff-icon i { font-size: 1.8rem; color: var(--amber); }
+  .ref-info-icon i { font-size: 1rem; color: var(--amber-lt); }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 4rem; background: rgba(13,44,30,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(77,153,112,0.25); }
+  .nav-logo { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; }
+  .logo-img { height: 42px; width: auto; display: block; }
+  .logo-sub { font-size: 0.58rem; font-weight: 400; color: rgba(255,255,255,0.45); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 2px; }
+  .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+  .nav-links a { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.03em; color: rgba(255,255,255,0.65); text-decoration: none; padding: 0.5rem 0.9rem; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--amber-lt); background: rgba(217,119,6,0.12); }
+  .nav-btn { background: var(--amber) !important; color: #1A1A1A !important; padding: 0.55rem 1.4rem !important; border-radius: 8px !important; font-weight: 700 !important; }
+  .nav-btn:hover { background: var(--amber-dark) !important; color: #fff !important; }
+  @media(max-width:900px){ nav{padding:0.9rem 1.5rem;} .nav-links{display:none;} }
+
+  footer { background: var(--forest-dark); padding: 4rem 4rem 2rem; border-top: 1px solid rgba(77,153,112,0.25); }
+  .footer-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 2rem; }
+  .footer-logo { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.25rem; }
+  .footer-logo-img { height: 50px; width: auto; display: block; }
+  .footer-tagline { font-size: 0.875rem; color: rgba(255,255,255,0.4); line-height: 1.75; max-width: 280px; }
+  .footer-heading { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(217,119,6,0.7); margin-bottom: 1.1rem; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a { font-size: 0.88rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--amber-lt); }
+  .footer-bottom { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+  .footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--amber-lt); }
+  @media(max-width:900px){ footer{padding:3rem 1.5rem 2rem;} .footer-inner{grid-template-columns:1fr;gap:2rem;} .footer-bottom{flex-direction:column;gap:0.4rem;} }
+
+  /* Social icons */
+  .footer-social { display:flex; gap:0.65rem; margin-top:1.25rem; }
+  .footer-social-link { width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:1rem; text-decoration:none; transition:transform 0.2s, opacity 0.2s; opacity:0.75; }
+  .footer-social-link:hover { transform:translateY(-3px); opacity:1; }
+  .footer-social-link.ig { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; }
+  .footer-social-link.fb { background:#1877F2; color:#fff; }
+  .social-btn { display:inline-flex; align-items:center; gap:0.65rem; padding:0.92rem 1.75rem; border-radius:var(--r); font-family:var(--sans); font-size:0.88rem; font-weight:700; text-decoration:none; transition:transform 0.2s, opacity 0.2s; }
+  .social-btn:hover { transform:translateY(-2px); opacity:0.92; }
+  .social-btn.ig { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; }
+  .social-btn.fb { background:#1877F2; color:#fff; }
+
+  .section { padding: 8rem 0; }
+  .section-inner { max-width: 1300px; margin: 0 auto; padding: 0 4rem; }
+  .pill-label { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(27,77,53,0.1); border: 1px solid rgba(27,77,53,0.28); border-radius: 100px; padding: 0.3rem 1rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--forest-mid); margin-bottom: 1.25rem; }
+  .pill-label .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--forest-mid); }
+  .pill-label.light { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.22); color: rgba(255,255,255,0.85); }
+  .pill-label.light .dot { background: var(--amber-lt); }
+  .sh2 { font-size: clamp(2rem, 3.2vw, 3.25rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: var(--charcoal); margin-bottom: 1.25rem; }
+  .sh2 em { font-style: italic; font-family: var(--serif); font-weight: 400; color: var(--forest); }
+  .sh2.light { color: var(--white); }
+  .sh2.light em { color: var(--amber-lt); }
+  .sbody { font-size: 1rem; font-weight: 400; color: var(--mid); line-height: 1.9; }
+  .sbody.light { color: rgba(255,255,255,0.62); }
+  .btn-primary { background: var(--amber); color: #1A1A1A; padding: 0.92rem 2.25rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; text-decoration: none; border-radius: var(--r); transition: background 0.2s, transform 0.15s; display: inline-block; box-shadow: 0 6px 24px rgba(217,119,6,0.28); }
+  .btn-primary:hover { background: var(--amber-dark); transform: translateY(-2px); }
+  .btn-outline { background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.9); padding: 0.92rem 2.25rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; text-decoration: none; border-radius: var(--r); transition: border-color 0.2s, background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-outline:hover { border-color: var(--amber-lt); background: rgba(217,119,6,0.1); transform: translateY(-2px); }
+  .btn-dark { background: var(--forest); color: var(--white); padding: 0.92rem 2.25rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; text-decoration: none; border-radius: var(--r); display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .btn-dark:hover { background: var(--forest-dark); transform: translateY(-2px); }
+  .btn-submit { width: 100%; margin-top: 1.75rem; background: var(--amber); color: #1A1A1A; border: none; padding: 1.05rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: background 0.2s, transform 0.15s; box-shadow: 0 6px 24px rgba(217,119,6,0.28); }
+  .btn-submit:hover { background: var(--amber-dark); transform: translateY(-1px); }
+  .ff { display: flex; flex-direction: column; gap: 0.35rem; }
+  .ff.s2 { grid-column: 1 / -1; }
+  .ff label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); }
+  .ff input, .ff select, .ff textarea { padding: 0.78rem 1rem; border: 1.5px solid rgba(27,77,53,0.18); border-radius: 8px; font-family: var(--sans); font-size: 0.9rem; color: var(--charcoal); background: var(--cream); outline: none; width: 100%; transition: border-color 0.2s, box-shadow 0.2s; }
+  .ff input:focus, .ff select:focus, .ff textarea:focus { border-color: var(--forest-mid); background: var(--white); box-shadow: 0 0 0 3px rgba(27,77,53,0.1); }
+  .ff textarea { min-height: 90px; resize: vertical; }
+  .fg2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+  @media(max-width:900px){ .section-inner{padding:0 1.5rem;} .fg2{grid-template-columns:1fr;} .ff.s2{grid-column:1;} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+  .form-msg { margin-top:1.1rem; padding:0.85rem 1.25rem; border-radius:8px; font-size:0.88rem; font-weight:600; display:none; }
+  .form-msg:not(:empty) { display:block; }
+  .form-success { background:rgba(27,77,53,0.1); color:var(--forest); border:1px solid rgba(27,77,53,0.25); }
+  .form-error { background:rgba(185,28,28,0.07); color:#b91c1c; border:1px solid rgba(185,28,28,0.18); }
+
+  .av { display: flex; align-items: flex-start; gap: 1.1rem; padding: 1.3rem 1.6rem; border-bottom: 1.5px solid rgba(27,77,53,0.1); background: var(--forest-frost); transition: background 0.2s; }
+  .av:last-child { border-bottom: none; }
+  .av:hover { background: var(--forest-pale); }
+  .av-icon { width: 36px; height: 36px; flex-shrink: 0; border-radius: 8px; background: rgba(27,77,53,0.12); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+  .av strong { display: block; font-size: 0.92rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.15rem; }
+  .av span { font-size: 0.83rem; color: var(--soft); }
+  .about-values { margin-top: 2.5rem; border: 1.5px solid rgba(27,77,53,0.12); border-radius: 12px; overflow: hidden; }
+  .quote-card { background: linear-gradient(150deg, var(--forest-dark) 0%, var(--forest) 100%); border-radius: 18px; padding: 3.5rem; position: relative; overflow: hidden; box-shadow: var(--shadow-lg); }
+  .quote-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 250px; height: 250px; border-radius: 50%; background: rgba(77,153,112,0.15); }
+  .qm { font-family: var(--serif); font-size: 5.5rem; line-height: 0; vertical-align: -2.2rem; color: var(--amber-lt); opacity: 0.6; margin-right: 0.1rem; }
+  .quote-text { font-family: var(--serif); font-size: 1.55rem; font-style: italic; color: rgba(255,255,255,0.92); line-height: 1.55; margin-bottom: 2.25rem; position: relative; z-index: 1; }
+  .quote-footer { display: flex; align-items: center; gap: 1rem; position: relative; z-index: 1; }
+  .quote-line { width: 32px; height: 2px; background: var(--amber); border-radius: 2px; }
+  .quote-name { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber-lt); }
+  .quote-badge { position: absolute; bottom: -1.25rem; right: 2.5rem; background: var(--amber); border-radius: 12px; padding: 1.25rem 1.75rem; box-shadow: 0 12px 40px rgba(217,119,6,0.35); text-align: center; min-width: 130px; }
+  .quote-badge strong { display: block; font-size: 2rem; font-weight: 700; color: #1A1A1A; line-height: 1; }
+  .quote-badge span { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: rgba(26,26,26,0.7); display: block; margin-top: 0.2rem; }
+
+  .page-hero { padding:12rem 0 6rem; background:linear-gradient(145deg,#0A1F14 0%,#1B4D35 52%,#0E3020 100%); position:relative; overflow:hidden; }
+  .page-hero::before { content:''; position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px); background-size:36px 36px; pointer-events:none; }
+  .page-hero::after { content:''; position:absolute; top:-60px; right:-60px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(77,153,112,0.2) 0%,transparent 70%); pointer-events:none; }
+  .page-hero-inner { max-width:1300px; margin:0 auto; padding:0 4rem; position:relative; z-index:1; }
+  .page-title { font-size:clamp(2.5rem,5vw,4rem); font-weight:700; color:var(--white); line-height:1.1; letter-spacing:-0.02em; margin-bottom:1.25rem; }
+  .page-title em { font-style:italic; font-family:var(--serif); color:var(--amber-lt); font-weight:400; }
+  .page-subtitle { font-size:1.1rem; color:rgba(255,255,255,0.62); max-width:600px; line-height:1.8; }
+
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; padding:8rem 0; }
+  .about-dark { background:linear-gradient(180deg,#0D2C1E 0%,#1B4D35 100%); padding:8rem 0; }
+  .diff-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3.5rem; }
+  .diff-card { background:rgba(255,255,255,0.06); border:1px solid rgba(77,153,112,0.2); border-radius:14px; padding:2rem 1.75rem; }
+  .diff-icon { font-size:1.8rem; margin-bottom:1rem; color:var(--amber); }
+  .diff-title { font-size:1rem; font-weight:700; color:var(--white); margin-bottom:0.6rem; }
+  .diff-body { font-size:0.85rem; color:rgba(255,255,255,0.52); line-height:1.75; }
+  .team-form { background:var(--sand); border-radius:16px; padding:3rem; border:1.5px solid rgba(27,77,53,0.1); }
+  .team-section { padding:8rem 0; background:var(--cream); }
+  .team-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:start; }
+  @media(max-width:1000px){ .about-grid,.team-grid{grid-template-columns:1fr;gap:3rem;} .diff-grid{grid-template-columns:1fr 1fr;} .page-hero-inner{padding:0 1.5rem;} }
+  @media(max-width:700px){ .diff-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Spring 2 Health" class="logo-img">
+    <span class="logo-sub">Disability Support &middot; Queensland</span>
+  </a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html" class="active">About</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="referral.html" class="nav-btn">Make a Referral</a></li></ul>
+</nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="pill-label light" style="margin-bottom:1.25rem;"><div class="dot"></div>About Us</div>
+    <h1 class="page-title">Who we <em>are</em></h1>
+    <p class="page-subtitle">A disability support provider that puts people first &mdash; always curious, always collaborative, always person-centred.</p>
+  </div>
+</div>
+<div style="background:var(--cream);">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="pill-label"><div class="dot"></div>Our Philosophy</div>
+        <h2 class="sh2">We are <em>curious</em> to get to know you</h2>
+        <p class="sbody" style="margin-bottom:1.5rem;">At Spring 2 Health, we want to get to know all about you as the expert in your own life. We take a person-centred approach to understanding who you are at a deeper level so that we can provide individualised disability support that speaks to exactly who you are.</p>
+        <p class="sbody" style="margin-bottom:1.5rem;">We operate from a curiosity standpoint and are constantly seeking to learn more about our participants and their unique situations. Our approach is strength-based &mdash; we focus on abilities and potential rather than limitations.</p>
+        <p class="sbody">We recognise that our participants are experts in their own lives, and we work to empower them to make their own decisions and live their lives to the fullest. We operate from a place of diversity and inclusion, ensuring that everyone feels valued and respected.</p>
+      </div>
+      <div>
+        <div class="about-values">
+          <div class="av"><div class="av-icon"><i class="fa-solid fa-bullseye"></i></div><div><strong>Uniquely Tailored to You</strong><span>Every participant receives support designed around their individual needs, goals, and aspirations.</span></div></div>
+          <div class="av"><div class="av-icon"><i class="fa-solid fa-handshake"></i></div><div><strong>Collaborative by Nature</strong><span>We work alongside you and your entire support network, never in isolation.</span></div></div>
+          <div class="av"><div class="av-icon"><i class="fa-solid fa-lightbulb"></i></div><div><strong>Understanding at a Deeper Level</strong><span>Operating from curiosity &mdash; constantly seeking to learn more about you and your strengths.</span></div></div>
+          <div class="av"><div class="av-icon"><i class="fa-solid fa-scale-balanced"></i></div><div><strong>Fairness &amp; Transparency</strong><span>Committed to fairness and transparency in all interactions, with the highest standards of integrity.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="about-dark">
+  <div class="section-inner">
+    <div style="text-align:center;max-width:580px;margin:0 auto 4rem;">
+      <div class="pill-label light" style="margin:0 auto 1.25rem;"><div class="dot"></div>Why Spring 2 Health</div>
+      <h2 class="sh2 light">We provide support <em>differently</em></h2>
+      <p class="sbody light">Through providing a tailored service unique to you &mdash; your obstacles and your aspirations &mdash; we deliver care that supports you as an individual.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card"><div class="diff-icon"><i class="fa-solid fa-person-hiking"></i></div><div class="diff-title">Adventure Therapy</div><div class="diff-body">Innovative outdoor programs using nature and adventure to build resilience, self-esteem, and mental well-being in a supported environment.</div></div>
+      <div class="diff-card"><div class="diff-icon"><i class="fa-solid fa-scale-balanced"></i></div><div class="diff-title">Social Work &amp; Advocacy</div><div class="diff-body">Our qualified social workers are specialists in navigating complex disability systems, advocating for your rights every step of the way.</div></div>
+      <div class="diff-card"><div class="diff-icon"><i class="fa-solid fa-seedling"></i></div><div class="diff-title">Strength-Based Approach</div><div class="diff-body">We focus on your abilities, strengths, and potential &mdash; not your limitations. Every plan is built around what you can do and where you want to go.</div></div>
+      <div class="diff-card"><div class="diff-icon"><i class="fa-solid fa-brain"></i></div><div class="diff-title">Evidence-Based Therapy</div><div class="diff-body">Therapeutic services grounded in current best practice &mdash; helping you develop coping strategies and improve mental health and well-being.</div></div>
+      <div class="diff-card"><div class="diff-icon"><i class="fa-solid fa-people-arrows"></i></div><div class="diff-title">Community Connected</div><div class="diff-body">We break down barriers to community participation, helping you build meaningful relationships and engage with the things that matter to you.</div></div>
+      <div class="diff-card"><div class="diff-icon"><i class="fa-solid fa-heart-pulse"></i></div><div class="diff-title">Trauma-Informed Practice</div><div class="diff-body">All our services are delivered through a trauma-informed lens &mdash; safe, empowering, and grounded in compassion and respect.</div></div>
+    </div>
+    <div style="max-width:700px;margin:5rem auto 0;">
+      <div class="quote-card">
+        <div class="quote-text"><span class="qm">&#8220;</span>We provide support differently. Most organisations think of their bottom line. We&#39;re in this for our participants &mdash; putting you first in everything we do.</div>
+        <div class="quote-footer"><div class="quote-line"></div><div class="quote-name">Spring 2 Health &mdash; Our Promise</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="team-section">
+  <div class="section-inner">
+    <div class="team-grid">
+      <div>
+        <div class="pill-label"><div class="dot"></div>Join Our Team</div>
+        <h2 class="sh2">Want to work with <em>Spring 2 Health?</em></h2>
+        <p class="sbody" style="margin-bottom:2rem;">We&#39;d love to hear from passionate people who share our values. Complete the form and we&#39;ll be in touch about available roles that suit your experience.</p>
+        <div class="about-values">
+          <div class="av"><div class="av-icon"><i class="fa-solid fa-bullseye"></i></div><div><strong>Purpose-Driven Work</strong><span>Make a real difference in the lives of people living with disability every day.</span></div></div>
+          <div class="av"><div class="av-icon"><i class="fa-solid fa-mountain-sun"></i></div><div><strong>Adventure Therapy Opportunities</strong><span>Deliver innovative outdoor programs that genuinely change lives in the community.</span></div></div>
+          <div class="av"><div class="av-icon"><i class="fa-solid fa-handshake"></i></div><div><strong>Supportive Team Culture</strong><span>Join a values-led team that genuinely cares about each other and participants.</span></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="team-form">
+          <h3 style="font-size:1.3rem;font-weight:700;color:var(--charcoal);margin-bottom:0.5rem;">Express Your Interest</h3>
+          <p style="font-size:0.88rem;color:var(--soft);margin-bottom:2rem;">Tell us a little about yourself and what role you&#39;re interested in.</p>
+          <div class="fg2">
+            <div class="ff"><label>First Name</label><input type="text" placeholder="First name"></div>
+            <div class="ff"><label>Last Name</label><input type="text" placeholder="Last name"></div>
+            <div class="ff s2"><label>Email Address</label><input type="email" placeholder="Your email address"></div>
+            <div class="ff s2"><label>Role of Interest</label><select><option value="">Select a role...</option><option>Support Worker</option><option>Social Worker</option><option>Adventure Therapy Facilitator</option><option>Team Leader</option><option>Other</option></select></div>
+            <div class="ff s2"><label>Tell Us About Yourself</label><textarea style="min-height:110px;" placeholder="Your background, experience, and why you want to join our team..."></textarea></div>
+          </div>
+          <button class="btn-submit">Send Expression of Interest</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><img src="logo.png" alt="Spring 2 Health" class="footer-logo-img"></div>
+      <p class="footer-tagline">A disability support provider based in Queensland, dedicated to improving the quality of life of our participants through holistic, person-centred care.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/spring2health" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-link ig"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://facebook.com/spring2health" target="_blank" rel="noopener" aria-label="Facebook" class="footer-social-link fb"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="referral.html">Make a Referral</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Our Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html">Social Work Services</a></li>
+        <li><a href="services.html">Adventure Therapy</a></li>
+        <li><a href="services.html">Community Access</a></li>
+
+        <li><a href="services.html">Respite Care</a></li>
+        <li><a href="services.html">Positive Behaviour Support</a></li>
+      </ul>
+      <div class="footer-heading" style="margin-top:1.5rem;">Policies</div>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Spring 2 Health. All rights reserved. Formerly Pristine Lifestyle Solutions.</span>
+    <span><a href="#">Privacy</a> &middot; <a href="#">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>

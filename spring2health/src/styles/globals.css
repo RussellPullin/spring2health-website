@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f7f2e9;
+  --foreground: #1f1f1f;
+  --card: #fffdf8;
+  --card-foreground: #1f1f1f;
+  --brand-gold: #d8b36a;
+  --brand-gold-deep: #b88a34;
+  --brand-black: #121212;
+  --brand-cream: #f7f2e9;
+  --brand-cream-dark: #efe5d4;
+  --brand-sand: #e6d6b7;
+  --brand-muted: #6f675b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-nunito), sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(216, 179, 106, 0.25);
+}
+
+.container-shell {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.section-pad {
+  padding: 4.5rem 0;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.hero-grid {
+  background-image:
+    radial-gradient(circle at top, rgba(216, 179, 106, 0.22), transparent 40%),
+    radial-gradient(circle, rgba(216, 179, 106, 0.2) 1px, transparent 1px);
+  background-size: auto, 24px 24px;
+}
+
+.gold-ring {
+  box-shadow: 0 0 0 1px rgba(216, 179, 106, 0.35);
+}
+
+.card-border {
+  border: 1px solid rgba(184, 138, 52, 0.16);
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 10px;
+  padding: 0.95rem 1.5rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-dark:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--brand-gold);
+  color: var(--brand-black);
+  box-shadow: 0 12px 30px rgba(184, 138, 52, 0.22);
+}
+
+.btn-primary:hover {
+  background: var(--brand-gold-deep);
+}
+
+.btn-secondary {
+  border: 1px solid rgba(216, 179, 106, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f9f4e9;
+}
+
+.btn-secondary:hover {
+  border-color: rgba(216, 179, 106, 0.6);
+  background: rgba(216, 179, 106, 0.12);
+}
+
+.btn-dark {
+  background: var(--brand-black);
+  color: #fdf8ef;
+}
+
+.btn-dark:hover {
+  background: #000;
+}
+
+.section-heading {
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.section-heading em {
+  font-family: var(--font-playfair), serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brand-gold);
+}
+
+.section-copy {
+  color: var(--brand-muted);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.dark-copy {
+  color: rgba(247, 242, 233, 0.66);
+}
+
+.panel-dark {
+  border: 1px solid rgba(216, 179, 106, 0.16);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+    #111111;
+  box-shadow: 0 24px 54px rgba(0, 0, 0, 0.24);
+}
+
+.panel-light {
+  border: 1px solid rgba(184, 138, 52, 0.16);
+  background: #fffdf8;
+  box-shadow: 0 22px 50px rgba(18, 18, 18, 0.08);
+}
+
+.input-control {
+  width: 100%;
+  border-radius: 8px;
+  border: 1.5px solid rgba(184, 138, 52, 0.22);
+  background: var(--brand-cream);
+  padding: 0.85rem 1rem;
+  color: var(--foreground);
+  font: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.input-control::placeholder {
+  color: rgba(111, 103, 91, 0.78);
+}
+
+.input-control:focus {
+  border-color: var(--brand-gold-deep);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(216, 179, 106, 0.15);
+}
+
+.input-control[aria-invalid="true"] {
+  border-color: #a64d39;
+}
+
+.hero-surface {
+  background:
+    radial-gradient(circle at top right, rgba(216, 179, 106, 0.22), transparent 32%),
+    radial-gradient(circle at 50% 100%, rgba(216, 179, 106, 0.08), transparent 25%),
+    linear-gradient(145deg, #000 0%, #1a1a1a 60%, #0d0d0d 100%);
+}
+
+.grid-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+@media (max-width: 768px) {
+  .section-pad {
+    padding: 3.5rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

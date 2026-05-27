@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referral &mdash; Spring 2 Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --forest:      #1B4D35;
+    --forest-dark: #0D2C1E;
+    --forest-mid:  #2A6B4A;
+    --forest-lt:   #4D9970;
+    --forest-pale: #EAF5EE;
+    --forest-frost:#F2FAF5;
+    --amber:       #D97706;
+    --amber-dark:  #B45309;
+    --amber-lt:    #F59E0B;
+    --amber-pale:  #FEF9EE;
+    --cream:       #F4F0E8;
+    --sand:        #EDE4D3;
+    --white:       #FFFFFF;
+    --charcoal:    #1A2A1C;
+    --mid:         #3D5247;
+    --soft:        #6A7C6E;
+    --border:      rgba(27,77,53,0.15);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Nunito', sans-serif;
+    --r: 10px;
+    --shadow:    0 4px 24px rgba(13,44,30,0.12);
+    --shadow-lg: 0 16px 60px rgba(13,44,30,0.22);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--cream); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--forest-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 3px; }
+
+  /* Icon sizing */
+  .icon-wrap i { display: flex; align-items: center; justify-content: center; }
+  .svc-ico i, .hcard-icon i { font-size: 1.2rem; color: var(--forest-lt); }
+  .svc-full-icon i { font-size: 2.6rem; color: var(--forest-mid); }
+  .av-icon i { font-size: 0.9rem; color: var(--forest-mid); }
+  .cd-icon i { font-size: 1.1rem; color: var(--forest-mid); }
+  .diff-icon i { font-size: 1.8rem; color: var(--amber); }
+  .ref-info-icon i { font-size: 1rem; color: var(--amber-lt); }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 4rem; background: rgba(13,44,30,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(77,153,112,0.25); }
+  .nav-logo { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; }
+  .logo-img { height: 42px; width: auto; display: block; }
+  .logo-sub { font-size: 0.58rem; font-weight: 400; color: rgba(255,255,255,0.45); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 2px; }
+  .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+  .nav-links a { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.03em; color: rgba(255,255,255,0.65); text-decoration: none; padding: 0.5rem 0.9rem; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--amber-lt); background: rgba(217,119,6,0.12); }
+  .nav-btn { background: var(--amber) !important; color: #1A1A1A !important; padding: 0.55rem 1.4rem !important; border-radius: 8px !important; font-weight: 700 !important; }
+  .nav-btn:hover { background: var(--amber-dark) !important; color: #fff !important; }
+  @media(max-width:900px){ nav{padding:0.9rem 1.5rem;} .nav-links{display:none;} }
+
+  footer { background: var(--forest-dark); padding: 4rem 4rem 2rem; border-top: 1px solid rgba(77,153,112,0.25); }
+  .footer-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 2rem; }
+  .footer-logo { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.25rem; }
+  .footer-logo-img { height: 50px; width: auto; display: block; }
+  .footer-tagline { font-size: 0.875rem; color: rgba(255,255,255,0.4); line-height: 1.75; max-width: 280px; }
+  .footer-heading { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(217,119,6,0.7); margin-bottom: 1.1rem; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a { font-size: 0.88rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--amber-lt); }
+  .footer-bottom { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+  .footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--amber-lt); }
+  @media(max-width:900px){ footer{padding:3rem 1.5rem 2rem;} .footer-inner{grid-template-columns:1fr;gap:2rem;} .footer-bottom{flex-direction:column;gap:0.4rem;} }
+
+  /* Social icons */
+  .footer-social { display:flex; gap:0.65rem; margin-top:1.25rem; }
+  .footer-social-link { width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:1rem; text-decoration:none; transition:transform 0.2s, opacity 0.2s; opacity:0.75; }
+  .footer-social-link:hover { transform:translateY(-3px); opacity:1; }
+  .footer-social-link.ig { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; }
+  .footer-social-link.fb { background:#1877F2; color:#fff; }
+  .social-btn { display:inline-flex; align-items:center; gap:0.65rem; padding:0.92rem 1.75rem; border-radius:var(--r); font-family:var(--sans); font-size:0.88rem; font-weight:700; text-decoration:none; transition:transform 0.2s, opacity 0.2s; }
+  .social-btn:hover { transform:translateY(-2px); opacity:0.92; }
+  .social-btn.ig { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; }
+  .social-btn.fb { background:#1877F2; color:#fff; }
+
+  .section { padding: 8rem 0; }
+  .section-inner { max-width: 1300px; margin: 0 auto; padding: 0 4rem; }
+  .pill-label { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(27,77,53,0.1); border: 1px solid rgba(27,77,53,0.28); border-radius: 100px; padding: 0.3rem 1rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--forest-mid); margin-bottom: 1.25rem; }
+  .pill-label .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--forest-mid); }
+  .pill-label.light { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.22); color: rgba(255,255,255,0.85); }
+  .pill-label.light .dot { background: var(--amber-lt); }
+  .sh2 { font-size: clamp(2rem, 3.2vw, 3.25rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; color: var(--charcoal); margin-bottom: 1.25rem; }
+  .sh2 em { font-style: italic; font-family: var(--serif); font-weight: 400; color: var(--forest); }
+  .sh2.light { color: var(--white); }
+  .sh2.light em { color: var(--amber-lt); }
+  .sbody { font-size: 1rem; font-weight: 400; color: var(--mid); line-height: 1.9; }
+  .sbody.light { color: rgba(255,255,255,0.62); }
+  .btn-primary { background: var(--amber); color: #1A1A1A; padding: 0.92rem 2.25rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; text-decoration: none; border-radius: var(--r); transition: background 0.2s, transform 0.15s; display: inline-block; box-shadow: 0 6px 24px rgba(217,119,6,0.28); }
+  .btn-primary:hover { background: var(--amber-dark); transform: translateY(-2px); }
+  .btn-outline { background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.9); padding: 0.92rem 2.25rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 600; text-decoration: none; border-radius: var(--r); transition: border-color 0.2s, background 0.2s, transform 0.15s; display: inline-block; }
+  .btn-outline:hover { border-color: var(--amber-lt); background: rgba(217,119,6,0.1); transform: translateY(-2px); }
+  .btn-dark { background: var(--forest); color: var(--white); padding: 0.92rem 2.25rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; text-decoration: none; border-radius: var(--r); display: inline-block; transition: background 0.2s, transform 0.15s; }
+  .btn-dark:hover { background: var(--forest-dark); transform: translateY(-2px); }
+  .btn-submit { width: 100%; margin-top: 1.75rem; background: var(--amber); color: #1A1A1A; border: none; padding: 1.05rem; font-family: var(--sans); font-size: 0.88rem; font-weight: 700; border-radius: 10px; cursor: pointer; transition: background 0.2s, transform 0.15s; box-shadow: 0 6px 24px rgba(217,119,6,0.28); }
+  .btn-submit:hover { background: var(--amber-dark); transform: translateY(-1px); }
+  .ff { display: flex; flex-direction: column; gap: 0.35rem; }
+  .ff.s2 { grid-column: 1 / -1; }
+  .ff label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--mid); }
+  .ff input, .ff select, .ff textarea { padding: 0.78rem 1rem; border: 1.5px solid rgba(27,77,53,0.18); border-radius: 8px; font-family: var(--sans); font-size: 0.9rem; color: var(--charcoal); background: var(--cream); outline: none; width: 100%; transition: border-color 0.2s, box-shadow 0.2s; }
+  .ff input:focus, .ff select:focus, .ff textarea:focus { border-color: var(--forest-mid); background: var(--white); box-shadow: 0 0 0 3px rgba(27,77,53,0.1); }
+  .ff textarea { min-height: 90px; resize: vertical; }
+  .fg2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+  @media(max-width:900px){ .section-inner{padding:0 1.5rem;} .fg2{grid-template-columns:1fr;} .ff.s2{grid-column:1;} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px);} to{opacity:1;transform:translateY(0);} }
+  .form-msg { margin-top:1.1rem; padding:0.85rem 1.25rem; border-radius:8px; font-size:0.88rem; font-weight:600; display:none; }
+  .form-msg:not(:empty) { display:block; }
+  .form-success { background:rgba(27,77,53,0.1); color:var(--forest); border:1px solid rgba(27,77,53,0.25); }
+  .form-error { background:rgba(185,28,28,0.07); color:#b91c1c; border:1px solid rgba(185,28,28,0.18); }
+
+  .av { display: flex; align-items: flex-start; gap: 1.1rem; padding: 1.3rem 1.6rem; border-bottom: 1.5px solid rgba(27,77,53,0.1); background: var(--forest-frost); transition: background 0.2s; }
+  .av:last-child { border-bottom: none; }
+  .av:hover { background: var(--forest-pale); }
+  .av-icon { width: 36px; height: 36px; flex-shrink: 0; border-radius: 8px; background: rgba(27,77,53,0.12); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; }
+  .av strong { display: block; font-size: 0.92rem; font-weight: 700; color: var(--charcoal); margin-bottom: 0.15rem; }
+  .av span { font-size: 0.83rem; color: var(--soft); }
+  .about-values { margin-top: 2.5rem; border: 1.5px solid rgba(27,77,53,0.12); border-radius: 12px; overflow: hidden; }
+  .quote-card { background: linear-gradient(150deg, var(--forest-dark) 0%, var(--forest) 100%); border-radius: 18px; padding: 3.5rem; position: relative; overflow: hidden; box-shadow: var(--shadow-lg); }
+  .quote-card::before { content: ''; position: absolute; top: -60px; right: -60px; width: 250px; height: 250px; border-radius: 50%; background: rgba(77,153,112,0.15); }
+  .qm { font-family: var(--serif); font-size: 5.5rem; line-height: 0; vertical-align: -2.2rem; color: var(--amber-lt); opacity: 0.6; margin-right: 0.1rem; }
+  .quote-text { font-family: var(--serif); font-size: 1.55rem; font-style: italic; color: rgba(255,255,255,0.92); line-height: 1.55; margin-bottom: 2.25rem; position: relative; z-index: 1; }
+  .quote-footer { display: flex; align-items: center; gap: 1rem; position: relative; z-index: 1; }
+  .quote-line { width: 32px; height: 2px; background: var(--amber); border-radius: 2px; }
+  .quote-name { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber-lt); }
+  .quote-badge { position: absolute; bottom: -1.25rem; right: 2.5rem; background: var(--amber); border-radius: 12px; padding: 1.25rem 1.75rem; box-shadow: 0 12px 40px rgba(217,119,6,0.35); text-align: center; min-width: 130px; }
+  .quote-badge strong { display: block; font-size: 2rem; font-weight: 700; color: #1A1A1A; line-height: 1; }
+  .quote-badge span { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; color: rgba(26,26,26,0.7); display: block; margin-top: 0.2rem; }
+
+  .page-hero { padding:12rem 0 6rem; background:linear-gradient(145deg,#0A1F14 0%,#1B4D35 52%,#0E3020 100%); position:relative; overflow:hidden; }
+  .page-hero::before { content:''; position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px); background-size:36px 36px; pointer-events:none; }
+  .page-hero::after { content:''; position:absolute; top:-60px; right:-60px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(77,153,112,0.2) 0%,transparent 70%); pointer-events:none; }
+  .page-hero-inner { max-width:1300px; margin:0 auto; padding:0 4rem; position:relative; z-index:1; }
+  .page-title { font-size:clamp(2.5rem,5vw,4rem); font-weight:700; color:var(--white); line-height:1.1; letter-spacing:-0.02em; margin-bottom:1.25rem; }
+  .page-title em { font-style:italic; font-family:var(--serif); color:var(--amber-lt); font-weight:400; }
+  .page-subtitle { font-size:1.1rem; color:rgba(255,255,255,0.62); max-width:600px; line-height:1.8; }
+
+  .referral-section { padding:8rem 0; background:var(--cream); }
+  .referral-grid { display:grid; grid-template-columns:1fr 1.6fr; gap:5rem; align-items:start; }
+  .ref-info-card { background:linear-gradient(150deg,var(--forest-dark),var(--forest)); border-radius:16px; padding:2.5rem; color:white; margin-bottom:1.5rem; }
+  .ref-info-card h3 { font-size:1.15rem; font-weight:700; color:var(--white); margin-bottom:0.75rem; }
+  .ref-info-card p { font-size:0.88rem; color:rgba(255,255,255,0.62); line-height:1.75; }
+  .ref-step { display:flex; align-items:flex-start; gap:1rem; padding:1rem 0; border-bottom:1px solid rgba(27,77,53,0.1); }
+  .ref-step:last-child { border-bottom:none; }
+  .ref-step-num { width:28px; height:28px; border-radius:50%; background:var(--amber); color:#1A1A1A; font-size:0.78rem; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .ref-step-text { font-size:0.88rem; color:var(--mid); line-height:1.6; padding-top:4px; }
+  .ref-steps { margin-top:1.5rem; }
+  .referral-form-wrap { background:var(--white); border:1.5px solid rgba(27,77,53,0.1); border-radius:16px; padding:3rem; box-shadow:var(--shadow); }
+  @media(max-width:1000px){ .referral-grid{grid-template-columns:1fr;gap:3rem;} .page-hero-inner{padding:0 1.5rem;} .referral-section{padding:5rem 0;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Spring 2 Health" class="logo-img">
+    <span class="logo-sub">Disability Support &middot; Queensland</span>
+  </a>
+  <ul class="nav-links"><li><a href="index.html" class="active">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="referral.html" class="nav-btn">Make a Referral</a></li></ul>
+</nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="pill-label light" style="margin-bottom:1.25rem;"><div class="dot"></div>Get Started</div>
+    <h1 class="page-title">Make a <em>Referral</em></h1>
+    <p class="page-subtitle">Refer yourself or someone you care about to Spring 2 Health. We&#39;ll be in touch quickly to discuss how we can help.</p>
+  </div>
+</div>
+<section class="referral-section">
+  <div class="section-inner">
+    <div class="referral-grid">
+      <div>
+        <div class="ref-info-card">
+          <h3>Why Spring 2 Health?</h3>
+          <p>We are an NDIS-registered provider committed to holistic, person-centred disability support in Queensland. From adventure therapy to social work, we offer a full range of services tailored to you.</p>
+        </div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--charcoal);margin-bottom:1rem;">How It Works</h3>
+        <div class="ref-steps">
+          <div class="ref-step"><div class="ref-step-num">1</div><div class="ref-step-text">Complete and submit the referral form</div></div>
+          <div class="ref-step"><div class="ref-step-num">2</div><div class="ref-step-text">Our team reviews your referral within 1&ndash;2 business days</div></div>
+          <div class="ref-step"><div class="ref-step-num">3</div><div class="ref-step-text">We contact you to discuss needs and appropriate services</div></div>
+          <div class="ref-step"><div class="ref-step-num">4</div><div class="ref-step-text">We develop a personalised support plan together</div></div>
+          <div class="ref-step"><div class="ref-step-num">5</div><div class="ref-step-text">Support begins &mdash; and we&#39;re with you every step of the way</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="referral-form-wrap">
+          <h3 style="font-size:1.3rem;font-weight:700;color:var(--charcoal);margin-bottom:0.5rem;">Referral Form</h3>
+          <p style="font-size:0.88rem;color:var(--soft);margin-bottom:2rem;">Please provide as much detail as possible so we can best support the individual.</p>
+          <form class="s2h-form" data-type="referral" novalidate>
+          <div class="fg2">
+            <div class="ff"><label>Participant First Name</label><input type="text" name="participant_first" placeholder="First name" required></div>
+            <div class="ff"><label>Participant Last Name</label><input type="text" name="participant_last" placeholder="Last name" required></div>
+            <div class="ff s2"><label>Date of Birth</label><input type="date" name="dob"></div>
+            <div class="ff s2"><label>NDIS Number (if applicable)</label><input type="text" name="ndis_number" placeholder="e.g. 43000000000"></div>
+            <div class="ff s2"><label>Contact Number</label><input type="tel" name="phone" placeholder="Phone number" required></div>
+            <div class="ff s2"><label>Email Address</label><input type="email" name="email" placeholder="Email address"></div>
+            <div class="ff s2"><label>Referral Source</label><select name="referral_source"><option value="">Who is making this referral?</option><option>Self-referral</option><option>Family / Carer</option><option>Support Coordinator</option><option>Healthcare Professional</option><option>Other</option></select></div>
+            <div class="ff s2"><label>Services Required</label><select name="services_required"><option value="">Select primary service...</option><option>Social Work Services</option><option>Adventure Therapy</option><option>Respite Care</option><option>Community Access</option><option>Positive Behaviour Support</option></select></div>
+            <div class="ff s2"><label>Additional Information</label><textarea name="additional_info" style="min-height:120px;" placeholder="Please describe the participant&#39;s needs, goals, and any other relevant information..."></textarea></div>
+          </div>
+          <div class="form-msg"></div>
+          <button type="submit" class="btn-submit">Submit Referral</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  document.querySelectorAll('.s2h-form').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('.btn-submit');
+      var msg = form.querySelector('.form-msg');
+      var orig = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      msg.className = 'form-msg';
+      msg.textContent = '';
+      var data = { type: form.dataset.type };
+      new FormData(form).forEach(function (v, k) { data[k] = v; });
+      fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+      .then(function () {
+        msg.textContent = '✓ Thank you — we'll be in touch soon.';
+        msg.className = 'form-msg form-success';
+        form.reset();
+        btn.disabled = false;
+        btn.textContent = orig;
+      })
+      .catch(function () {
+        msg.textContent = 'Something went wrong. Please email us at info@spring2health.com.au';
+        msg.className = 'form-msg form-error';
+        btn.disabled = false;
+        btn.textContent = orig;
+      });
+    });
+  });
+})();
+</script><footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><img src="logo.png" alt="Spring 2 Health" class="footer-logo-img"></div>
+      <p class="footer-tagline">A disability support provider based in Queensland, dedicated to improving the quality of life of our participants through holistic, person-centred care.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/spring2health" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-link ig"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://facebook.com/spring2health" target="_blank" rel="noopener" aria-label="Facebook" class="footer-social-link fb"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="referral.html">Make a Referral</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Our Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html">Social Work Services</a></li>
+        <li><a href="services.html">Adventure Therapy</a></li>
+        <li><a href="services.html">Community Access</a></li>
+
+        <li><a href="services.html">Respite Care</a></li>
+        <li><a href="services.html">Positive Behaviour Support</a></li>
+      </ul>
+      <div class="footer-heading" style="margin-top:1.5rem;">Policies</div>
+      <ul class="footer-links">
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Spring 2 Health. All rights reserved. Formerly Pristine Lifestyle Solutions.</span>
+    <span><a href="#">Privacy</a> &middot; <a href="#">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>
