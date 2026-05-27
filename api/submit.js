@@ -1,12 +1,16 @@
-const { Resend } = require('resend');
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-const TO = 'info@spring2health.com.au';
+const TO = process.env.RESEND_TO_EMAIL || 'info@spring2health.com.au';
+const FROM =
+  process.env.RESEND_FROM_EMAIL ||
+  'Spring 2 Health <noreply@spring2health.com.au>';
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
-  const d = req.body;
+  if (!process.env.RESEND_API_KEY) {
+    return res.status(500).json({ error: 'missing_resend_api_key' });
+  }
+
+  const d = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
   const isRef = d.type === 'referral';
 
   const subject = isRef
@@ -16,13 +20,27 @@ module.exports = async function handler(req, res) {
   const html = isRef ? referralHtml(d) : contactHtml(d);
 
   try {
-    await resend.emails.send({
-      from: 'Spring 2 Health <noreply@spring2health.com.au>',
-      to: TO,
-      reply_to: d.email || undefined,
-      subject,
-      html,
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: FROM,
+        to: [TO],
+        reply_to: d.email || undefined,
+        subject,
+        html,
+      }),
     });
+
+    if (!response.ok) {
+      const message = await response.text();
+      console.error('Resend error:', response.status, message);
+      return res.status(500).json({ error: 'send_failed' });
+    }
+
     res.status(200).json({ ok: true });
   } catch (err) {
     console.error('Resend error:', err);
