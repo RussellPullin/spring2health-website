@@ -241,7 +241,7 @@
         var result = await response.json().catch(function () { return {}; });
         if (!response.ok || !result.ok) throw new Error(result.error || 'send_failed');
 
-        msg.textContent = '✓ Thank you — we'll be in touch soon.';
+        msg.textContent = '✓ Referral submitted. Thank you — our team will be in contact within two working days.';
         msg.className = 'form-msg form-success';
         form.reset();
       } catch (err) {

@@ -33,6 +33,11 @@ function parseBody(req) {
   return JSON.parse(req.body);
 }
 
+function shouldRedirectToSubmittedPage(req, data) {
+  const contentType = req.headers['content-type'] || '';
+  return data.type === 'referral' && contentType.includes('application/x-www-form-urlencoded');
+}
+
 module.exports = async function handler(req, res) {
   setCorsHeaders(req, res);
 
@@ -74,6 +79,10 @@ module.exports = async function handler(req, res) {
       const message = JSON.stringify(result);
       console.error('Resend error:', response.status, message);
       return res.status(500).json({ error: 'send_failed' });
+    }
+
+    if (shouldRedirectToSubmittedPage(req, d)) {
+      return res.redirect(303, '/referral-submitted');
     }
 
     res.status(200).json({ ok: true, id: result.id });
