@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy &mdash; Spring 2 Health</title>
+<meta name="description" content="Read Spring 2 Health's privacy policy, including how we collect, use, store, and protect personal and health information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --forest:      #1B4D35;
+    --forest-dark: #0D2C1E;
+    --forest-mid:  #2A6B4A;
+    --forest-lt:   #4D9970;
+    --forest-pale: #EAF5EE;
+    --forest-frost:#F2FAF5;
+    --amber:       #D97706;
+    --amber-dark:  #B45309;
+    --amber-lt:    #F59E0B;
+    --cream:       #F4F0E8;
+    --sand:        #EDE4D3;
+    --white:       #FFFFFF;
+    --charcoal:    #1A2A1C;
+    --mid:         #3D5247;
+    --soft:        #6A7C6E;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Nunito', sans-serif;
+    --r: 10px;
+    --shadow: 0 4px 24px rgba(13,44,30,0.12);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--cream); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--forest-dark); }
+  ::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 3px; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 4rem; background: rgba(13,44,30,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(77,153,112,0.25); }
+  .nav-logo { display: flex; align-items: center; gap: 0.85rem; text-decoration: none; }
+  .logo-img { height: 42px; width: auto; display: block; }
+  .logo-sub { font-size: 0.58rem; font-weight: 400; color: rgba(255,255,255,0.45); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 2px; }
+  .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+  .nav-links a { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.03em; color: rgba(255,255,255,0.65); text-decoration: none; padding: 0.5rem 0.9rem; border-radius: 6px; transition: color 0.2s, background 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--amber-lt); background: rgba(217,119,6,0.12); }
+  .nav-btn { background: var(--amber) !important; color: #1A1A1A !important; padding: 0.55rem 1.4rem !important; border-radius: 8px !important; font-weight: 700 !important; }
+  .nav-btn:hover { background: var(--amber-dark) !important; color: #fff !important; }
+  @media(max-width:900px){ nav{padding:0.9rem 1.5rem;} .nav-links{display:none;} }
+
+  .page-hero { padding:12rem 0 6rem; background:linear-gradient(145deg,#0A1F14 0%,#1B4D35 52%,#0E3020 100%); position:relative; overflow:hidden; }
+  .page-hero::before { content:''; position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px); background-size:36px 36px; pointer-events:none; }
+  .page-hero::after { content:''; position:absolute; top:-60px; right:-60px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(77,153,112,0.2) 0%,transparent 70%); pointer-events:none; }
+  .page-hero-inner { max-width:1300px; margin:0 auto; padding:0 4rem; position:relative; z-index:1; }
+  .pill-label { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(27,77,53,0.1); border:1px solid rgba(27,77,53,0.28); border-radius:100px; padding:0.3rem 1rem; font-size:0.7rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--forest-mid); margin-bottom:1.25rem; }
+  .pill-label .dot { width:6px; height:6px; border-radius:50%; background:var(--forest-mid); }
+  .pill-label.light { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.22); color:rgba(255,255,255,0.85); }
+  .pill-label.light .dot { background:var(--amber-lt); }
+  .page-title { font-size:clamp(2.5rem,5vw,4rem); font-weight:700; color:var(--white); line-height:1.1; letter-spacing:-0.02em; margin-bottom:1.25rem; }
+  .page-title em { font-style:italic; font-family:var(--serif); color:var(--amber-lt); font-weight:400; }
+  .page-subtitle { font-size:1.1rem; color:rgba(255,255,255,0.62); max-width:680px; line-height:1.8; }
+
+  .policy-section { padding:7rem 0; background:var(--cream); }
+  .policy-inner { max-width:980px; margin:0 auto; padding:0 4rem; }
+  .policy-card { background:var(--white); border:1.5px solid rgba(27,77,53,0.12); border-radius:16px; padding:3rem; box-shadow:var(--shadow); }
+  .policy-intro { font-size:1rem; color:var(--mid); line-height:1.9; margin-bottom:2rem; }
+  .policy-updated { display:inline-block; margin-bottom:2.5rem; padding:0.45rem 0.9rem; border-radius:999px; background:var(--forest-frost); color:var(--forest-mid); font-size:0.78rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; }
+  .policy-block { padding:2rem 0; border-top:1px solid rgba(27,77,53,0.1); }
+  .policy-block h2 { font-size:1.35rem; font-weight:700; color:var(--charcoal); margin-bottom:0.75rem; font-family:var(--serif); }
+  .policy-block p, .policy-block li { font-size:0.97rem; color:var(--mid); line-height:1.85; }
+  .policy-block p + p { margin-top:1rem; }
+  .policy-block ul { margin:0.75rem 0 0 1.25rem; }
+  .policy-block a { color:var(--forest); font-weight:700; }
+  .contact-box { margin-top:1rem; background:var(--forest-frost); border:1px solid rgba(27,77,53,0.14); border-radius:12px; padding:1.4rem; }
+  .contact-box p { margin:0; }
+  @media(max-width:900px){ .page-hero-inner,.policy-inner{padding:0 1.5rem;} .policy-section{padding:4rem 0;} .policy-card{padding:2rem 1.5rem;} }
+
+  footer { background: var(--forest-dark); padding: 4rem 4rem 2rem; border-top: 1px solid rgba(77,153,112,0.25); }
+  .footer-inner { max-width: 1300px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.06); margin-bottom: 2rem; }
+  .footer-logo { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.25rem; }
+  .footer-logo-img { height: 50px; width: auto; display: block; }
+  .footer-tagline { font-size: 0.875rem; color: rgba(255,255,255,0.4); line-height: 1.75; max-width: 280px; }
+  .footer-heading { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(217,119,6,0.7); margin-bottom: 1.1rem; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .footer-links a { font-size: 0.88rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--amber-lt); }
+  .footer-bottom { max-width: 1300px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 0.78rem; color: rgba(255,255,255,0.2); }
+  .footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
+  .footer-bottom a:hover { color: var(--amber-lt); }
+  .footer-social { display:flex; gap:0.65rem; margin-top:1.25rem; }
+  .footer-social-link { width:38px; height:38px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:1rem; text-decoration:none; transition:transform 0.2s, opacity 0.2s; opacity:0.75; }
+  .footer-social-link:hover { transform:translateY(-3px); opacity:1; }
+  .footer-social-link.ig { background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); color:#fff; }
+  .footer-social-link.fb { background:#1877F2; color:#fff; }
+  @media(max-width:900px){ footer{padding:3rem 1.5rem 2rem;} .footer-inner{grid-template-columns:1fr;gap:2rem;} .footer-bottom{flex-direction:column;gap:0.4rem;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="Spring 2 Health" class="logo-img">
+    <span class="logo-sub">Disability Support &middot; Queensland</span>
+  </a>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li><li><a href="referral.html" class="nav-btn">Make a Referral</a></li></ul>
+</nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="pill-label light" style="margin-bottom:1.25rem;"><div class="dot"></div>Privacy Policy</div>
+    <h1 class="page-title">Protecting your <em>privacy</em></h1>
+    <p class="page-subtitle">This policy explains how Spring 2 Health collects, uses, stores, and protects personal and health information when you contact us, make a referral, use our website, or receive services from us.</p>
+  </div>
+</div>
+<section class="policy-section">
+  <div class="policy-inner">
+    <article class="policy-card">
+      <span class="policy-updated">Last updated: 27 May 2026</span>
+      <p class="policy-intro">Spring 2 Health is committed to handling personal information respectfully, lawfully, and transparently. We understand that the information shared with us can be sensitive, especially for NDIS participants, families, carers, nominees, and referrers.</p>
+
+      <div class="policy-block">
+        <h2>1. Information We Collect</h2>
+        <p>We may collect personal information when you contact us, submit a website form, make or receive a referral, express interest in working with us, or engage our services.</p>
+        <p>This may include names, contact details, NDIS-related information, support needs, health or disability information, emergency contact details, referral details, employment information, and any other information you choose to provide.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>2. How We Collect Information</h2>
+        <p>We collect information directly from you wherever possible. We may also receive information from authorised representatives, family members, carers, support coordinators, health professionals, referrers, or other service providers when it is relevant to providing support or responding to an enquiry.</p>
+        <p>Our website forms collect the details you enter and send them securely to our team so we can respond to your enquiry or referral.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>3. How We Use Information</h2>
+        <p>We use personal information to:</p>
+        <ul>
+          <li>respond to enquiries, referrals, and requests for support;</li>
+          <li>assess suitability for services and coordinate care;</li>
+          <li>provide disability support, social work, respite, community access, behaviour support, and related services;</li>
+          <li>communicate with participants, families, carers, nominees, and support networks;</li>
+          <li>meet legal, regulatory, NDIS, safeguarding, quality, insurance, and record-keeping obligations;</li>
+          <li>manage employment or contractor enquiries; and</li>
+          <li>improve our services and website.</li>
+        </ul>
+      </div>
+
+      <div class="policy-block">
+        <h2>4. Disclosure of Information</h2>
+        <p>We only share personal information where it is necessary, authorised, or required by law. This may include sharing information with healthcare professionals, support coordinators, plan managers, carers, nominees, emergency services, regulators, insurers, or trusted service providers who help us operate our services.</p>
+        <p>We do not sell personal information.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>5. Sensitive and Health Information</h2>
+        <p>Health, disability, and support information is sensitive information. We only collect and use this information when it is needed to provide safe and appropriate services, where you have provided consent, or where permitted or required by law.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>6. Website, Cookies, and Analytics</h2>
+        <p>Our website may collect basic technical information such as browser type, device information, pages visited, and referral sources. This helps us keep the site secure and understand how it is used. You can control cookies through your browser settings.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>7. Storage and Security</h2>
+        <p>We take reasonable steps to protect personal information from misuse, interference, loss, unauthorised access, modification, or disclosure. This includes limiting access to information, using secure systems where practical, and maintaining appropriate record-keeping practices.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>8. Access and Correction</h2>
+        <p>You may request access to personal information we hold about you, or ask us to correct information you believe is inaccurate, incomplete, or out of date. We may need to verify your identity before responding.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>9. Complaints and Concerns</h2>
+        <p>If you have a privacy concern or complaint, please contact us first so we can respond. We will take privacy complaints seriously and aim to resolve them promptly and respectfully.</p>
+      </div>
+
+      <div class="policy-block">
+        <h2>10. Contact Us</h2>
+        <p>For privacy enquiries, access requests, correction requests, or complaints, contact Spring 2 Health:</p>
+        <div class="contact-box">
+          <p><strong>Email:</strong> <a href="mailto:info@spring2health.com.au">info@spring2health.com.au</a></p>
+          <p><strong>Website:</strong> <a href="https://spring2health.com.au">spring2health.com.au</a></p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><img src="logo.png" alt="Spring 2 Health" class="footer-logo-img"></div>
+      <p class="footer-tagline">A disability support provider based in Queensland, dedicated to improving the quality of life of our participants through holistic, person-centred care.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/spring2health" target="_blank" rel="noopener" aria-label="Instagram" class="footer-social-link ig"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://facebook.com/spring2health" target="_blank" rel="noopener" aria-label="Facebook" class="footer-social-link fb"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Our Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="referral.html">Make a Referral</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Our Services</div>
+      <ul class="footer-links">
+        <li><a href="services.html">Social Work Services</a></li>
+        <li><a href="services.html">Adventure Therapy</a></li>
+        <li><a href="services.html">Community Access</a></li>
+        <li><a href="services.html">Respite Care</a></li>
+        <li><a href="services.html">Positive Behaviour Support</a></li>
+      </ul>
+      <div class="footer-heading" style="margin-top:1.5rem;">Policies</div>
+      <ul class="footer-links">
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Spring 2 Health. All rights reserved. Formerly Pristine Lifestyle Solutions.</span>
+    <span><a href="privacy-policy.html">Privacy</a> &middot; <a href="#">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>

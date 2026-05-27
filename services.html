@@ -146,7 +146,7 @@
   .page-subtitle { font-size:1.1rem; color:rgba(255,255,255,0.62); max-width:600px; line-height:1.8; }
 
   .services-list { padding:7rem 0; }
-  .svc-full { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; padding:5rem 0; border-bottom:1.5px solid rgba(27,77,53,0.1); }
+  .svc-full { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; padding:5rem 0; border-bottom:1.5px solid rgba(27,77,53,0.1); scroll-margin-top:6rem; }
   .svc-full:last-child { border-bottom:none; }
   .svc-full.flip { direction:rtl; }
   .svc-full.flip > * { direction:ltr; }
@@ -184,7 +184,7 @@
 <section class="services-list">
   <div class="section-inner">
 
-    <div class="svc-full">
+    <div id="social-work-services" class="svc-full">
       <div>
         <span class="svc-full-icon"><i class="fa-solid fa-handshake-angle"></i></span>
         <h2 class="svc-full-title">Social Work Services</h2>
@@ -201,7 +201,7 @@
       </div>
     </div>
 
-    <div class="svc-full flip">
+    <div id="adventure-therapy" class="svc-full flip">
       <div>
         <span class="svc-full-icon"><i class="fa-solid fa-mountain-sun"></i></span>
         <h2 class="svc-full-title">Adventure Therapy</h2>
@@ -310,14 +310,14 @@
       </ul>
       <div class="footer-heading" style="margin-top:1.5rem;">Policies</div>
       <ul class="footer-links">
-        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
         <li><a href="#">Terms &amp; Conditions</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
     <span>&copy; 2025 Spring 2 Health. All rights reserved. Formerly Pristine Lifestyle Solutions.</span>
-    <span><a href="#">Privacy</a> &middot; <a href="#">Terms</a></span>
+    <span><a href="privacy-policy.html">Privacy</a> &middot; <a href="#">Terms</a></span>
   </div>
 </footer>
 </body>

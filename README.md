@@ -18,6 +18,7 @@ Open [http://localhost:3456](http://localhost:3456).
 - `gallery.html` — Gallery
 - `contact.html` — Contact
 - `referral.html` — Referral form
+- `privacy-policy.html` — Privacy policy
 
 ## Deploy
 
