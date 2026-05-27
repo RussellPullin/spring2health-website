@@ -1,5 +1,11 @@
 # Deploying Spring 2 Health to Vercel
 
+## Domain still shows GoDaddy?
+
+Your domain DNS still points at GoDaddy, not Vercel. Follow **[GODADDY_DNS_FIX.md](GODADDY_DNS_FIX.md)** first — no code change fixes that until DNS is updated.
+
+---
+
 The **live site** is the green static HTML at the **repository root** (`index.html`, `referral.html`, `gallery.html`, etc.). Preview locally with:
 
 ```bash
