@@ -33,9 +33,41 @@ function parseBody(req) {
   return JSON.parse(req.body);
 }
 
-function shouldRedirectToSubmittedPage(req, data) {
+function isNativeFormSubmission(req) {
   const contentType = req.headers['content-type'] || '';
-  return data.type === 'referral' && contentType.includes('application/x-www-form-urlencoded');
+  return contentType.includes('application/x-www-form-urlencoded');
+}
+
+function submittedHtml(isRef) {
+  const title = isRef ? 'Referral Submitted' : 'Message Sent';
+  const message = isRef
+    ? 'Thank you — we have received your referral.'
+    : 'Thank you — we have received your message.';
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="refresh" content="0; url=/referral-submitted">
+<title>${title} — Spring 2 Health</title>
+<style>
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:#F4F0E8; color:#1A2A1C; font-family:Arial,sans-serif; text-align:center; padding:2rem; }
+  .card { max-width:640px; background:white; border:1px solid rgba(27,77,53,0.15); border-radius:16px; padding:3rem; box-shadow:0 16px 60px rgba(13,44,30,0.12); }
+  h1 { color:#1B4D35; margin:0 0 1rem; }
+  p { line-height:1.7; color:#3D5247; }
+  a { color:#1B4D35; font-weight:700; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>${title}</h1>
+    <p>${message}</p>
+    <p>Our team will review the information and be in contact within <strong>two working days</strong>.</p>
+    <p><a href="/referral-submitted">Continue to confirmation page</a></p>
+  </div>
+</body>
+</html>`;
 }
 
 module.exports = async function handler(req, res) {
@@ -81,8 +113,9 @@ module.exports = async function handler(req, res) {
       return res.status(500).json({ error: 'send_failed' });
     }
 
-    if (shouldRedirectToSubmittedPage(req, d)) {
-      return res.redirect(303, '/referral-submitted');
+    if (isNativeFormSubmission(req)) {
+      res.setHeader('Content-Type', 'text/html; charset=utf-8');
+      return res.status(200).send(submittedHtml(isRef));
     }
 
     res.status(200).json({ ok: true, id: result.id });

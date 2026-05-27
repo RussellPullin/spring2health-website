@@ -241,9 +241,7 @@
         var result = await response.json().catch(function () { return {}; });
         if (!response.ok || !result.ok) throw new Error(result.error || 'send_failed');
 
-        msg.textContent = '✓ Referral submitted. Thank you — our team will be in contact within two working days.';
-        msg.className = 'form-msg form-success';
-        form.reset();
+        window.location.href = '/referral-submitted';
       } catch (err) {
         msg.textContent = 'Something went wrong. Please email us at info@spring2health.com.au or call us directly.';
         msg.className = 'form-msg form-error';
