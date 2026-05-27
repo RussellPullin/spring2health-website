@@ -3,7 +3,27 @@ const FROM =
   process.env.RESEND_FROM_EMAIL ||
   'Spring 2 Health <noreply@spring2health.com.au>';
 
+function setCorsHeaders(req, res) {
+  const origin = req.headers.origin;
+  const allowedOrigins = [
+    'https://spring2health.com.au',
+    'https://www.spring2health.com.au',
+    'http://localhost:3456'
+  ];
+
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
+  res.setHeader('Vary', 'Origin');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+}
+
 module.exports = async function handler(req, res) {
+  setCorsHeaders(req, res);
+
+  if (req.method === 'OPTIONS') return res.status(204).end();
   if (req.method !== 'POST') return res.status(405).end();
 
   if (!process.env.RESEND_API_KEY) {

@@ -231,7 +231,7 @@
       new FormData(form).forEach(function (v, k) { data[k] = v; });
 
       try {
-        var response = await fetch('/api/submit', {
+        var response = await fetch('https://spring2health.com.au/api/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           cache: 'no-store',
