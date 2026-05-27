@@ -35,13 +35,15 @@ module.exports = async function handler(req, res) {
       }),
     });
 
+    const result = await response.json().catch(() => ({}));
+
     if (!response.ok) {
-      const message = await response.text();
+      const message = JSON.stringify(result);
       console.error('Resend error:', response.status, message);
       return res.status(500).json({ error: 'send_failed' });
     }
 
-    res.status(200).json({ ok: true });
+    res.status(200).json({ ok: true, id: result.id });
   } catch (err) {
     console.error('Resend error:', err);
     res.status(500).json({ error: 'send_failed' });
