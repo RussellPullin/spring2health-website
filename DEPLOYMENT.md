@@ -15,7 +15,7 @@ python3 -m http.server 3456
 
 Open [http://localhost:3456](http://localhost:3456).
 
-The `spring2health/` folder is an unused Next.js prototype — **do not** set it as the Vercel root directory.
+This repository contains **only** the green static site (no Next.js app).
 
 ## 1. GitHub
 
@@ -29,7 +29,7 @@ In Vercel → Project → **Settings → General**:
 
 | Setting | Value |
 |---------|--------|
-| **Root Directory** | *(empty — use repo root)* |
+| **Root Directory** | *(leave empty — repo root)* |
 | **Framework Preset** | Other |
 | **Build Command** | *(leave empty)* |
 | **Output Directory** | *(leave empty)* |
