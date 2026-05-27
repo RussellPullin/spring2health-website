@@ -173,8 +173,9 @@ INDEX_CSS = SHARED_CSS + """
   .hero-pill-check { width:20px; height:20px; border-radius:50%; flex-shrink:0; background:rgba(77,153,112,0.18); border:1.5px solid var(--forest-lt); display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:var(--amber-lt); font-weight:700; }
   .hero-btns { display:flex; gap:1rem; flex-wrap:wrap; }
   .hero-right { display:flex; flex-direction:column; gap:1rem; }
-  .hcard { background:rgba(255,255,255,0.06); border:1px solid rgba(77,153,112,0.2); border-radius:14px; padding:1.5rem 1.75rem; display:flex; align-items:flex-start; gap:1rem; transition:background 0.3s,transform 0.25s; }
+  .hcard { background:rgba(255,255,255,0.06); border:1px solid rgba(77,153,112,0.2); border-radius:14px; padding:1.5rem 1.75rem; display:flex; align-items:flex-start; gap:1rem; transition:background 0.3s,transform 0.25s; text-decoration:none; color:inherit; }
   .hcard:hover { background:rgba(77,153,112,0.12); transform:translateX(5px); }
+  .hcard:focus-visible { outline:2px solid var(--amber-lt); outline-offset:4px; }
   .hcard.featured { background:rgba(77,153,112,0.12); border-color:rgba(77,153,112,0.38); }
   .hcard-icon { width:40px; height:40px; flex-shrink:0; border-radius:10px; background:rgba(77,153,112,0.15); display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
   .hcard-name { font-size:0.88rem; font-weight:700; color:var(--white); margin-bottom:0.2rem; }
@@ -228,7 +229,7 @@ ABOUT_CSS = SHARED_CSS + PAGE_HERO_CSS + """
 
 SERVICES_CSS = SHARED_CSS + PAGE_HERO_CSS + """
   .services-list { padding:7rem 0; }
-  .svc-full { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; padding:5rem 0; border-bottom:1.5px solid rgba(27,77,53,0.1); }
+  .svc-full { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; padding:5rem 0; border-bottom:1.5px solid rgba(27,77,53,0.1); scroll-margin-top:6rem; }
   .svc-full:last-child { border-bottom:none; }
   .svc-full.flip { direction:rtl; }
   .svc-full.flip > * { direction:ltr; }
@@ -372,8 +373,8 @@ INDEX_BODY = nav('home') + """
       <div class="hero-btns"><a href="referral.html" class="btn-primary">Make a Referral</a><a href="services.html" class="btn-outline">Explore Our Services</a></div>
     </div>
     <div class="hero-right">
-      <div class="hcard featured"><div class="hcard-icon"><i class="fa-solid fa-mountain-sun"></i></div><div><div class="hcard-name">Adventure Therapy</div><div class="hcard-desc">Innovative outdoor programs building resilience and well-being.</div></div></div>
-      <div class="hcard"><div class="hcard-icon"><i class="fa-solid fa-handshake-angle"></i></div><div><div class="hcard-name">Social Work Services</div><div class="hcard-desc">Qualified social workers guiding you through life&#39;s challenges.</div></div></div>
+      <a href="services.html#adventure-therapy" class="hcard featured"><div class="hcard-icon"><i class="fa-solid fa-mountain-sun"></i></div><div><div class="hcard-name">Adventure Therapy</div><div class="hcard-desc">Innovative outdoor programs building resilience and well-being.</div></div></a>
+      <a href="services.html#social-work-services" class="hcard"><div class="hcard-icon"><i class="fa-solid fa-handshake-angle"></i></div><div><div class="hcard-name">Social Work Services</div><div class="hcard-desc">Qualified social workers guiding you through life&#39;s challenges.</div></div></a>
       <div class="hcard"><div class="hcard-icon"><i class="fa-solid fa-people-group"></i></div><div><div class="hcard-name">Community Access</div><div class="hcard-desc">Supporting you to engage and build meaningful connections.</div></div></div>
       <div class="hcard"><div class="hcard-icon"><i class="fa-solid fa-bed"></i></div><div><div class="hcard-name">Respite Care</div><div class="hcard-desc">Flexible short-term care giving caregivers a well-earned break.</div></div></div>
     </div>
@@ -417,11 +418,11 @@ INDEX_BODY = nav('home') + """
       <h2 class="sh2 light">Improving your <em>quality of life</em></h2>
     </div>
     <div class="svc-grid-home">
-      <a href="services.html" class="svc-card"><div class="svc-ico"><i class="fa-solid fa-handshake-angle"></i></div><div class="svc-title">Social Work Services</div><div class="svc-desc">Qualified social workers providing guidance and advocacy for NDIS participants.</div></a>
+      <a href="services.html#social-work-services" class="svc-card"><div class="svc-ico"><i class="fa-solid fa-handshake-angle"></i></div><div class="svc-title">Social Work Services</div><div class="svc-desc">Qualified social workers providing guidance and advocacy for NDIS participants.</div></a>
       <a href="services.html" class="svc-card"><div class="svc-ico"><i class="fa-solid fa-bed"></i></div><div class="svc-title">Respite Care</div><div class="svc-desc">Short and medium-term relief for caregivers with flexible arrangements.</div></a>
       <a href="services.html" class="svc-card"><div class="svc-ico"><i class="fa-solid fa-people-group"></i></div><div class="svc-title">Community Access</div><div class="svc-desc">Breaking down barriers so you can actively participate in your community.</div></a>
 
-      <a href="services.html" class="svc-card"><div class="svc-ico"><i class="fa-solid fa-mountain-sun"></i></div><div class="svc-title">Adventure Therapy</div><div class="svc-desc">Innovative outdoor programs for mental health and personal growth.</div></a>
+      <a href="services.html#adventure-therapy" class="svc-card"><div class="svc-ico"><i class="fa-solid fa-mountain-sun"></i></div><div class="svc-title">Adventure Therapy</div><div class="svc-desc">Innovative outdoor programs for mental health and personal growth.</div></a>
       <a href="services.html" class="svc-card"><div class="svc-ico"><i class="fa-solid fa-clipboard-check"></i></div><div class="svc-title">Behaviour Support</div><div class="svc-desc">Positive behaviour support plans tailored to your unique circumstances.</div></a>
     </div>
     <div class="svcs-footer"><a href="services.html" class="btn-primary">View All Services</a></div>
@@ -547,7 +548,7 @@ SERVICES_BODY = nav('services') + """
 <section class="services-list">
   <div class="section-inner">
 
-    <div class="svc-full">
+    <div id="social-work-services" class="svc-full">
       <div>
         <span class="svc-full-icon"><i class="fa-solid fa-handshake-angle"></i></span>
         <h2 class="svc-full-title">Social Work Services</h2>
@@ -564,7 +565,7 @@ SERVICES_BODY = nav('services') + """
       </div>
     </div>
 
-    <div class="svc-full flip">
+    <div id="adventure-therapy" class="svc-full flip">
       <div>
         <span class="svc-full-icon"><i class="fa-solid fa-mountain-sun"></i></span>
         <h2 class="svc-full-title">Adventure Therapy</h2>
