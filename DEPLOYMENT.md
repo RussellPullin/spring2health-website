@@ -1,80 +1,81 @@
 # Deploying Spring 2 Health to Vercel
 
-The live site is the **Next.js app** in the `spring2health/` folder. The HTML files in the project root are an older static version and are not used for deployment.
-
-## 1. Push the project to GitHub
-
-Vercel deploys from Git. From the project folder:
+The **live site** is the green static HTML at the **repository root** (`index.html`, `referral.html`, `gallery.html`, etc.). Preview locally with:
 
 ```bash
 cd "/Users/pristinelifestylesolutions/Desktop/S2H website"
-git init
-git add .
-git commit -m "Prepare Spring 2 Health site for Vercel"
+python3 -m http.server 3456
 ```
 
-Create a new repository on GitHub, then:
+Open [http://localhost:3456](http://localhost:3456).
 
-```bash
-git remote add origin https://github.com/YOUR_ORG/spring2health-website.git
-git branch -M main
-git push -u origin main
-```
+The `spring2health/` folder is an unused Next.js prototype — **do not** set it as the Vercel root directory.
 
-## 2. Import the project in Vercel
+## 1. GitHub
 
-1. Go to [vercel.com/new](https://vercel.com/new) and import your GitHub repository.
-2. Set **Root Directory** to `spring2health` (important — the Next.js app is not at the repo root).
-3. Framework Preset should auto-detect as **Next.js**.
-4. Build Command: `npm run build` (default)
-5. Output Directory: leave default (`.next`)
+Repository: [github.com/RussellPullin/spring2health-website](https://github.com/RussellPullin/spring2health-website)
 
-## 3. Add environment variables
+Push changes to `main` to trigger a deploy (after Vercel is configured as below).
 
-In Vercel → Project → **Settings** → **Environment Variables**, add:
+## 2. Vercel project settings
 
-| Variable | Example | Notes |
-|----------|---------|-------|
-| `RESEND_API_KEY` | `re_...` | From [resend.com](https://resend.com) → API Keys |
-| `RESEND_TO_EMAIL` | `info@spring2health.com.au` | Inbox for form submissions |
-| `RESEND_FROM_EMAIL` | `Spring 2 Health <noreply@spring2health.com.au>` | Must use a **verified domain** in Resend |
+In Vercel → Project → **Settings → General**:
+
+| Setting | Value |
+|---------|--------|
+| **Root Directory** | *(empty — use repo root)* |
+| **Framework Preset** | Other |
+| **Build Command** | *(leave empty)* |
+| **Output Directory** | *(leave empty)* |
+| **Install Command** | `npm install` *(optional; installs `resend` for `/api/submit`)* |
+
+If Root Directory is still set to `spring2health`, clear it, save, then redeploy.
+
+## 3. Environment variables
+
+In Vercel → **Settings → Environment Variables**:
+
+| Variable | Required | Notes |
+|----------|----------|--------|
+| `RESEND_API_KEY` | Yes | From [resend.com](https://resend.com) → API Keys |
 
 Apply to **Production**, **Preview**, and **Development**.
 
-Without these variables, forms still submit but emails are not sent.
+`RESEND_TO_EMAIL` and `RESEND_FROM_EMAIL` are **not** used by the static site. The API at [`api/submit.js`](api/submit.js) sends to `info@spring2health.com.au` from `noreply@spring2health.com.au`.
 
-## 4. Configure Resend (email)
+## 4. Resend (email)
 
-1. In Resend, add and verify the domain `spring2health.com.au` (DNS records from Resend dashboard).
-2. Use a from address on that domain, e.g. `noreply@spring2health.com.au`.
-3. Do **not** use `onboarding@resend.dev` in production — it only works for testing.
+1. Verify the domain `spring2health.com.au` in Resend (DNS records from Resend dashboard).
+2. Use `noreply@spring2health.com.au` as the from address (already set in `api/submit.js`).
+3. Do not use `onboarding@resend.dev` in production.
 
-## 5. Connect your custom domain
+## 5. Custom domain and DNS
 
-1. Vercel → Project → **Settings** → **Domains**
-2. Add `spring2health.com.au` and `www.spring2health.com.au`
-3. Update DNS at your domain registrar with the records Vercel provides.
-4. Set the apex domain (`spring2health.com.au`) as the **primary** domain and redirect `www` if desired.
+1. Vercel → **Settings → Domains** — add `spring2health.com.au` and `www.spring2health.com.au`.
+2. In **GoDaddy DNS** (not GoDaddy Website Builder):
+   - **A** `@` → `76.76.21.21` (or the IP Vercel shows)
+   - **CNAME** `www` → `cname.vercel-dns.com`
+   - Keep **MX** records for email
+3. Disconnect or unpublish any **GoDaddy Website** attached to this domain.
+4. Wait for DNS propagation, then click **Refresh** in Vercel Domains.
 
 ## 6. Deploy
 
-Click **Deploy** (or push to `main` — Vercel redeploys automatically).
+Push to `main` or click **Redeploy** in Vercel.
 
-After deploy, verify:
+## 7. Verify after deploy
 
-- [ ] Home, About, Services, Contact, Referral pages load
-- [ ] Contact form sends email to `RESEND_TO_EMAIL`
-- [ ] Referral form sends email
-- [ ] `https://spring2health.com.au/sitemap.xml` and `/robots.txt` are reachable
+- [ ] `https://spring2health.com.au` — green forest theme, logo image, not black/gold Next.js
+- [ ] `/referral` or `/referral.html` — referral form with participant fields
+- [ ] `/gallery` — gallery page loads
+- [ ] Contact and referral forms send email (test with `RESEND_API_KEY` set)
+- [ ] No `/_next/static/` assets in page source (that indicates the wrong Next.js deploy)
 
 ## Local development
 
 ```bash
-cd spring2health
-cp .env.example .env.local
-# Edit .env.local with your Resend keys
-npm install
-npm run dev
+cd "/Users/pristinelifestylesolutions/Desktop/S2H website"
+python3 -m http.server 3456
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Forms POST to `/api/submit`, which only works on Vercel (or with a local serverless stub). For local form testing, deploy to a Vercel preview branch.
