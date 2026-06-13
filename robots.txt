@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.spring2health.com.au/sitemap.xml
+Sitemap: https://spring2health.com.au/sitemap.xml
